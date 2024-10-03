@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">CNIC</th>
+            <th scope="col">Subject</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{userDetail?.firstName}}</td>
+            <td>{{userDetail?.lastName}}</td>
+            <td>{{userDetail?.email}}</td>
+            <td>{{userDetail?.phone}}</td>
+            <td>{{userDetail?.cnic}}</td>
+            <td>
+                <ul>
+                    @for (subject of userDetail?.subject; track $index) {
+                    <li>{{ subject }}</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

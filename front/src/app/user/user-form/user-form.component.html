@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="form-row d-flex gap-5">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">First Name</label>
+                        <input type="text" class="form-control" id="inputEmail4" formControlName="firstName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Last Name</label>
+                        <input type="text" class="form-control" id="inputPassword4" formControlName="lastName">
+                    </div>
+                </div>
+                <div class="form-row d-flex gap-5">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Email</label>
+                        <input type="email" class="form-control" id="inputCity" formControlName="email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputZip">Phone</label>
+                        <input type="text" class="form-control" id="inputZip" formControlName="phone">
+                    </div>
+                </div>
+                <div class="form-row d-flex gap-5 mt-3">
+                    <div class="form-group col-md-6">
+                        <label for="inputZip">CNIC</label>
+                        <input type="text" class="form-control" id="inputZip" formControlName="cnic">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <mat-form-field>
+                            <mat-label>Subjects</mat-label>
+                            <mat-select formArrayName="subject" multiple (selectionChange)="onSubjectChange($event)">
+                                @for (subject of subjects; track $index) {
+                                    <mat-option [value]="subject">{{subject}}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

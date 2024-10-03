@@ -1,0 +1,40 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">CNIC</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (user of users; track $index) {
+        <tr>
+            <th scope="row">{{$index+1}}</th>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.cnic}}</td>
+            <td>
+                <ul>
+                    @for (subject of user.subject; track $index) {
+                    <li>{{ subject }}</li>
+                    }
+                </ul>
+            </td>
+            <td>
+                <button class="btn btn-success" [routerLink]="['/users/'+user.ID]"
+                    routerLinkActive="router-link-active">View</button>
+                <button class="btn btn-primary" [routerLink]="['/users/edit/'+user.ID]"
+                    routerLinkActive="router-link-active">Edit</button>
+                <button class="btn btn-danger" (click)="deleteUser(user.ID)">Delete</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
