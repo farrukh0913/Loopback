@@ -1,10 +1,12 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const config = {
   name: 'mongoatlas',
   connector: 'mongodb',
-  url: 'mongodb+srv://farrukhkhan0913:PtQM0oIwGqP1UJe9@loopback-cluster.3zxbh.mongodb.net/loopback-cluster?retryWrites=true&w=majority',
+  url: process.env.mongodb_uri,
   host: 'loopback-cluster.3zxbh.mongodb.net',
   port: 27017,
   user: 'farrukhkhan0913',
