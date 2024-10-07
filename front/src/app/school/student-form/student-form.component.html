@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2>Add New Student</h2>
+            <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+                <div class="form-row d-flex">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">First Name</label>
+                        <input type="text" class="form-control" id="inputEmail4" formControlName="firstName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Last Name</label>
+                        <input type="text" class="form-control" id="inputPassword4" formControlName="lastName">
+                    </div>
+                </div>
+                <div class="form-row d-flex">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Email</label>
+                        <input type="email" class="form-control" id="inputCity" formControlName="email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputZip">Class</label>
+                        <select class="form-select" formControlName="class" aria-label="Default select example">
+                            <option selected disabled>Select Class</option>
+                            <option value="Class 1">Class 1</option>
+                            <option value="Class 2">Class 2</option>
+                            <option value="Class 3">Class 3</option>
+                            <option value="Class 4">Class 4</option>
+                            <option value="Class 5">Class 5</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

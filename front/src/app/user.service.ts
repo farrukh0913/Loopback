@@ -16,27 +16,27 @@ interface User {
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:3000/users';
+  private baseUrl = 'http://localhost:3000/';
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
+  getUsers(endpoint: string): Observable<User[]> {
+    return this.http.get<User[]>(this.baseUrl+endpoint);
   }
   
-  getUserById(id: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/${id}`);
+  getUserById(id: string, endpoint: string): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl+endpoint}/${id}`);
   }
 
-  createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
+  createUser(user: User, endpoint: string): Observable<User> {
+    return this.http.post<User>(this.baseUrl+endpoint, user);
   }
 
-  updateUser(id: string, user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/${id}`, user);
+  updateUser(id: string, user: User, endpoint: string): Observable<User> {
+    return this.http.put<User>(`${this.baseUrl+endpoint}/${id}`, user);
   }
 
-  deleteUser(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  deleteUser(id: string, endpoint: string): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl+endpoint}/${id}`);
   }
 }

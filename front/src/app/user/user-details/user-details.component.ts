@@ -19,7 +19,7 @@ export class UserDetailsComponent {
   ) { }
 
   ngOnInit() {
-    this.userService.getUserById(this.route.snapshot.params["id"]).subscribe((data) => {
+    this.userService.getUserById(this.route.snapshot.params["id"], "users").subscribe((data) => {
       this.userDetail = data;
     });
   }

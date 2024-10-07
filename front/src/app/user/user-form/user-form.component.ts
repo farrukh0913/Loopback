@@ -37,7 +37,7 @@ export class UserFormComponent {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
-      this.userService.getUserById(this.id).subscribe((user: any) => {
+      this.userService.getUserById(this.id, "users").subscribe((user: any) => {
         this.userForm.patchValue(user);
       });
     }
@@ -61,11 +61,11 @@ export class UserFormComponent {
   onSubmit(): void {
     if (this.userForm.valid) {
       if (this.id) {
-        this.userService.updateUser(this.id, this.userForm.value).subscribe(() => {
+        this.userService.updateUser(this.id, this.userForm.value, "users").subscribe(() => {
           this.router.navigate(['/users']);
         });
       } else {
-        this.userService.createUser(this.userForm.value).subscribe(() => {
+        this.userService.createUser(this.userForm.value, "users").subscribe(() => {
           this.router.navigate(['/users']);
         });
       }

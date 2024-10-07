@@ -20,13 +20,13 @@ export class UserListComponent {
   }
   
   getUsers() {
-    this.userService.getUsers().subscribe((data) => {
+    this.userService.getUsers("users").subscribe((data) => {
       this.users = data;
     });
   }
 
   deleteUser(id: string): void {
-    this.userService.deleteUser(id).subscribe(() => {
+    this.userService.deleteUser(id, "users").subscribe(() => {
       this.getUsers();
     });
   }

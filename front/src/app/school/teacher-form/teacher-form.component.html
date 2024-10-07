@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h2>Add New Teacher</h2>
+            <form [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+                <div class="form-row d-flex">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">First Name</label>
+                        <input type="text" class="form-control" id="inputEmail4" formControlName="firstName">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Last Name</label>
+                        <input type="text" class="form-control" id="inputPassword4" formControlName="lastName">
+                    </div>
+                </div>
+                <div class="form-row d-flex">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Email</label>
+                        <input type="email" class="form-control" id="inputCity" formControlName="email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <mat-form-field>
+                            <mat-label>Class</mat-label>
+                            <mat-select formControlName="classAssigned" multiple (selectionChange)="onClassChange($event)">
+                                @for (class of classes; track $index) {
+                                    <mat-option [value]="class">
+                                        {{class}}
+                                    </mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
